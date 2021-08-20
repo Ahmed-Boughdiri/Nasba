@@ -5,6 +5,8 @@ import Banner from "./Banner/Banner";
 import ShopSection from "./ShopSection/ShopSection";
 import Title from "./Title/Title";
 import Card from "./Card/Card";
+import Button from "./Button/Button";
+import Footer from "./Footer/Footer";
 
 export {
     Navbar,
@@ -13,5 +15,7 @@ export {
     Banner,
     ShopSection,
     Title,
-    Card
+    Card,
+    Button,
+    Footer
 }

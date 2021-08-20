@@ -3,12 +3,12 @@ import { Container } from "react-bootstrap";
 import { Title, Card } from "components";
 
 const ShopSectionContainer = styled(Container)`
-    margin-top: 30px;
+    margin-top: 60px;
 `;
 
 const ShopSectionWrapper = styled.div`
     width: 100%;
-    margin-top: 15px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 `;
@@ -23,6 +23,15 @@ const ShopSection = () =>(
     <ShopSectionContainer>
         <Title fontSize="45px">Our Products</Title>
         <ShopSectionWrapper>
+            <ShopSectionItem>
+                <Card />
+            </ShopSectionItem>
+            <ShopSectionItem>
+                <Card />
+            </ShopSectionItem>
+            <ShopSectionItem>
+                <Card />
+            </ShopSectionItem>
             <ShopSectionItem>
                 <Card />
             </ShopSectionItem>

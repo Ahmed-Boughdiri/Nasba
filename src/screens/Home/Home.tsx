@@ -3,7 +3,8 @@ import {
     Navbar,
     Caption,
     Banner,
-    ShopSection
+    ShopSection,
+    Footer
 } from "components";
 
 const Home = () =>(
@@ -12,6 +13,7 @@ const Home = () =>(
         <Caption />
         <Banner />
         <ShopSection />
+        <Footer />
     </Page>
 );
 
