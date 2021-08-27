@@ -1,5 +1,9 @@
-import Home from "./Home/Home"
+import Home from "./Home/Home";
+import Product from "./Product/Product";
+import Policy from "./Policy/Policy";
 
 export {
-    Home
+    Home,
+    Product,
+    Policy
 }
