@@ -1,5 +1,6 @@
 import cartIcon from "assets/cart.png";
 import purchaseIcon from "assets/purchase.png";
+import removeIcon from "assets/remove.svg";
 
 const theme = {
     colors: {
@@ -9,7 +10,8 @@ const theme = {
     },
     icons: {
         cart: cartIcon,
-        purchase: purchaseIcon
+        purchase: purchaseIcon,
+        remove: removeIcon
     }
 }
 

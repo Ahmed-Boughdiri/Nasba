@@ -7,6 +7,7 @@ import Title from "./Title/Title";
 import Card from "./Card/Card";
 import Button from "./Button/Button";
 import Footer from "./Footer/Footer";
+import Input from "./Input/Input";
 
 export {
     Navbar,
@@ -17,5 +18,6 @@ export {
     Title,
     Card,
     Button,
-    Footer
+    Footer,
+    Input
 }
