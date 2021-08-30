@@ -53,6 +53,7 @@ export const CartItemThumbnail = styled.div`
     justify-content: center;
     &>img {
         height: 100%;
+        width: 100%;
     }
 `;
 

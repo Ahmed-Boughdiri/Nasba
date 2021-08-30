@@ -24,11 +24,12 @@ export const ProductDetailsWrapper = styled.div`
 
 export const ProductThumbnail = styled.div`
     height: 400px;
-    width: 500px;
+    width: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
     &>img {
+        width: 100%;
         height: 100%;
     }
     @media only screen and (max-width: 920px) {

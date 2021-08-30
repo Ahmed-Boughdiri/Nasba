@@ -8,6 +8,7 @@ import Card from "./Card/Card";
 import Button from "./Button/Button";
 import Footer from "./Footer/Footer";
 import Input from "./Input/Input";
+import Alert from "./Alert/Alert";
 
 export {
     Navbar,
@@ -19,5 +20,6 @@ export {
     Card,
     Button,
     Footer,
-    Input
+    Input,
+    Alert
 }

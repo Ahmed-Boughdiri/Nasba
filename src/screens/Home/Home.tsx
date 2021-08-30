@@ -6,13 +6,14 @@ import {
     ShopSection,
     Footer
 } from "components";
+import { RouteComponentProps } from "react-router";
 
-const Home = () =>(
+const Home:React.FC<RouteComponentProps> = ({ history }) =>(
     <Page>
         <Navbar />
         <Caption />
         <Banner />
-        <ShopSection />
+        <ShopSection history={history} />
         <Footer />
     </Page>
 );

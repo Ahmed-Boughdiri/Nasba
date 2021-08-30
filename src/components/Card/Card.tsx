@@ -9,14 +9,21 @@ import {
     CardWrapper,
     DiscountPrice
 } from "./Styled";
+import { CardProps } from "./Props";
 
-import product1 from "assets/product1.png";
-
-const Card = () =>(
+const Card:React.FC<CardProps> = ({
+    thumbnail,
+    discountPirce,
+    genre,
+    name,
+    price,
+    size,
+    onClick
+}) =>(
     <CardContainer>
         <CardThumbnail>
             <img 
-                src={product1}
+                src={`http://localhost:5000/${thumbnail}`}
                 alt="" 
             />
         </CardThumbnail>
@@ -25,18 +32,30 @@ const Card = () =>(
                 textAlign="left"
                 fontSize="23px"
             >
-                Product Name
+                { name }
             </Title>
             <CardPriceContainer>
-                <DiscountPrice fontSize="18px">25.99$</DiscountPrice>
-                <Title fontSize="18px">20.99$</Title>
+                {
+                    discountPirce && (
+                        <DiscountPrice fontSize="18px">
+                            { discountPirce }
+                        </DiscountPrice>
+                    )
+                }
+                <Title fontSize="18px">
+                    { price }
+                </Title>
             </CardPriceContainer>
             <CardDetailsContainer>
-                <CardDetail>10 picies available for size M</CardDetail>
-                <CardDetail>For: Men</CardDetail>
+                <CardDetail>
+                    Sizes: { size }
+                </CardDetail>
+                <CardDetail>
+                    For: { genre } 
+                </CardDetail>
             </CardDetailsContainer>
             <CardButtonContainer>
-                <Button>Order Now</Button>
+                <Button onClick={onClick}>Order Now</Button>
             </CardButtonContainer>
         </CardWrapper>
     </CardContainer>

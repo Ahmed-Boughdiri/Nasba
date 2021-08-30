@@ -1,7 +1,8 @@
 import { 
     Page, 
     Navbar, 
-    Title
+    Title,
+    Alert
 } from "components";
 import {
     ProductDetails,
@@ -18,74 +19,109 @@ import {
     ProductThumbnail
 } from "./Styled";
 import theme from "theme";
+import { 
+    useHandleGetProduct,
+    useHandleAddToCart
+} from "hooks";
 
-import product from "assets/product1.png";
-
-const Product = () =>(
-    <Page>
-        <Navbar />
-        <ProductDetailsContainer>
-            <ProductDetailsWrapper>
-                <ProductThumbnail>
-                    <img 
-                        src={product}
-                        alt="" 
-                    />
-                </ProductThumbnail>
-                <ProductDetails>
-                    <Title
-                        fontWeight="800"
-                        fontSize="32px"
-                        textAlign="left"
+const Product = () =>{
+    const product = useHandleGetProduct();
+    const {
+        handleAddToCart,
+        error,
+        success,
+        emptyErrorMsg,
+        emptySuccessMsg
+    } = useHandleAddToCart();
+    return (
+        <Page>
+            <Navbar />
+            {
+                error && (
+                    <Alert onHide={emptyErrorMsg}>
+                        { error }
+                    </Alert>
+                )
+            }
+            {
+                success && (
+                    <Alert 
+                        onHide={emptySuccessMsg}
+                        success
                     >
-                        Levis T-shirt
-                    </Title>
-                    <Title
-                        fontSize="25px"
-                        textAlign="left"
-                    >
-                        Simple T-shirt For Teenagers
-                    </Title>
-                    <ProductPriceContainer>
-                        <ProductPrice discount>
-                            160dt -Piece 
-                        </ProductPrice>
-                        <ProductPrice>
-                            100 dt -Piece 
-                        </ProductPrice>
-                    </ProductPriceContainer>
-                    <ProductMoreDetailsContainer>
-                        <ProductMoreDetails>
-                            10 picies available for size M
-                        </ProductMoreDetails>
-                        <ProductMoreDetails>
-                            For: Men
-                        </ProductMoreDetails>
-                    </ProductMoreDetailsContainer>
-                    <ProductDetailsParagraph>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    </ProductDetailsParagraph>
-                    <ProductDetailsButtonsContainer>
-                        <ProductDetailsButton>
-                            <ProductDetailsButtonIcon 
-                                src={theme.icons.cart}
-                                alt=""
-                            />
-                            ADD TO CART
-                        </ProductDetailsButton>
-                        <ProductDetailsButton>
-                            <ProductDetailsButtonIcon 
-                                src={theme.icons.purchase}
-                                alt=""
-                            />
-                            PURCHASE NOW
-                        </ProductDetailsButton>
-                    </ProductDetailsButtonsContainer>
-                </ProductDetails>
-            </ProductDetailsWrapper>
-        </ProductDetailsContainer>
-    </Page>
-);
+                        { success }
+                    </Alert>
+                )
+            }
+            <ProductDetailsContainer>
+                <ProductDetailsWrapper>
+                    <ProductThumbnail>
+                        <img 
+                            src={`http://localhost:5000/${product.thumbnail[0] || ""}`}
+                            alt="" 
+                        />
+                    </ProductThumbnail>
+                    <ProductDetails>
+                        <Title
+                            fontWeight="800"
+                            fontSize="32px"
+                            textAlign="left"
+                        >
+                            { product.name }
+                        </Title>
+                        <Title
+                            fontSize="25px"
+                            textAlign="left"
+                        >
+                            { product.label }
+                        </Title>
+                        <ProductPriceContainer>
+                            {
+                                product.discountPrice && (
+                                    <ProductPrice discount>
+                                        { product.discountPrice }dt -Piece 
+                                    </ProductPrice>
+                                )
+                            }
+                            <ProductPrice>
+                                { product.price } dt -Piece 
+                            </ProductPrice>
+                        </ProductPriceContainer>
+                        <ProductMoreDetailsContainer>
+                            <ProductMoreDetails>
+                                Sizes: { product.size }
+                            </ProductMoreDetails>
+                            <ProductMoreDetails>
+                                For: { product.genre }
+                            </ProductMoreDetails>
+                        </ProductMoreDetailsContainer>
+                        <ProductDetailsParagraph>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        </ProductDetailsParagraph>
+                        <ProductDetailsButtonsContainer>
+                            <ProductDetailsButton 
+                                onClick={() =>handleAddToCart(product)}
+                            >
+                                <ProductDetailsButtonIcon 
+                                    src={theme.icons.cart}
+                                    alt=""
+                                />
+                                ADD TO CART
+                            </ProductDetailsButton>
+                            <ProductDetailsButton>
+                                <ProductDetailsButtonIcon 
+                                    src={theme.icons.purchase}
+                                    alt=""
+                                />
+                                PURCHASE NOW
+                            </ProductDetailsButton>
+                        </ProductDetailsButtonsContainer>
+                    </ProductDetails>
+                </ProductDetailsWrapper>
+            </ProductDetailsContainer>
+        </Page>
+    );
+}
 
 export default Product;

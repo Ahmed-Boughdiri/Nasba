@@ -11,26 +11,36 @@ import {
 } from "./Styled";
 import theme from "theme";
 
-import product from "assets/product1.png";
+interface ItemProps {
+    thumbnail?: String,
+    name: String,
+    label: String,
+    price: Number,
+}
 
-const Item = () =>(
+const Item:React.FC<ItemProps> = ({
+    thumbnail="",
+    name,
+    label,
+    price,
+}) =>(
     <CartItem>
         <CartItemContainer>
             <CartItemThumbnail>
                 <img 
-                    src={product}
+                    src={`http://localhost:5000/${thumbnail}`}
                     alt="" 
                 />
             </CartItemThumbnail>
             <CartItemDetails>
                 <CartItemProductName>
-                    Product Name
+                    { name }
                 </CartItemProductName>
                 <CartItemLabel>
-                    Product Label
+                    { label }
                 </CartItemLabel>
                 <CartItemPrice>
-                    250.00$
+                    { price }$
                 </CartItemPrice>
             </CartItemDetails>
         </CartItemContainer>
