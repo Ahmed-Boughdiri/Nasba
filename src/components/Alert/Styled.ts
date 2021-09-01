@@ -32,10 +32,14 @@ export const AlertContainer = styled.div<AlertContainerProps>`
         margin-left: auto;
     }
     ${
-        ({ success }) =>{
+        ({ success, width }) =>{
             if(success)
                 return css`
                     background-color: rgba(75, 181, 67, 0.9);
+                `;
+            if(width)
+                return css`
+                    width: ${width as string}
                 `;
         }
     }

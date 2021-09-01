@@ -1,9 +1,11 @@
 
 export interface AlertProps {
     onHide?: () => void,
-    success?: Boolean
+    success?: Boolean,
+    width?: String
 }
 
 export interface AlertContainerProps {
-    success?: Boolean
+    success?: Boolean,
+    width?: String
 }

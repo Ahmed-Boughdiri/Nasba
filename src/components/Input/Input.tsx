@@ -6,11 +6,15 @@ import { InputProps } from "./Props";
 
 const Input:React.FC<InputProps> = ({ 
     placeholder="",
-    dualInput
+    dualInput,
+    value="",
+    onChange
 }) =>(
     <InputContainer dualInput={dualInput}>
         <InputComponent 
             placeholder={placeholder as string}
+            value={value as string}
+            onChange={onChange}
         />
     </InputContainer>
 );

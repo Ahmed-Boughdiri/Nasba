@@ -5,9 +5,13 @@ import { AlertProps } from "./Props";
 const Alert:React.FC<AlertProps> = ({ 
     children, 
     onHide,
-    success
+    success,
+    width
 }) =>(
-    <AlertContainer success={success}>
+    <AlertContainer 
+        success={success}
+        width={width}
+    >
         <h6>
             { children }
         </h6>

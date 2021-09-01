@@ -5,6 +5,8 @@ export interface InputContainerProps {
 
 export interface InputProps {
     placeholder?: String,
-    dualInput?: Boolean
+    dualInput?: Boolean,
+    value?: String,
+    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void
 }
 
