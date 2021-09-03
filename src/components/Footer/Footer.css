@@ -2,6 +2,12 @@
 .footer {
     background-color: #2C3539;
 }
+.footer p, a, h6 {
+    color: #fff;
+}
+.footer a {
+    text-decoration: none;
+}
 #button-addon1 {
     color: #ffc371;
 }
@@ -12,6 +18,14 @@ i {
     font-size: 0.95rem;
     color: #aaa;
     font-style: italic;
+}
+.footer-email-input {
+    background-color: transparent;
+    outline: none;
+}
+.footer-email-input:focus {
+    background-color: transparent;
+    border-width: 0;
 }
 .footer-copyright {
     background-color: #171b1d;

@@ -1,7 +1,9 @@
 import { 
     Page, 
     Navbar,
-    Alert
+    Alert,
+    View,
+    Footer
 } from "components";
 import {
     DeliveryContainer,
@@ -12,14 +14,21 @@ import {
     DeliveryTotalPrice,
     DeliveryWrapper
 } from "./Styled";
-import { useHandleMakeDelivery } from "hooks";
+import { 
+    useHandleMakeDelivery,
+    useHandleGetProduct
+} from "hooks";
+import { RouteComponentProps } from "react-router-dom";
 
-const Delivery = () =>{
+const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
+    useHandleGetProduct();
     const {
         state,
         handleMakeDelivery,
         validationError,
-        emptyValidationErrorMsg
+        emptyValidationErrorMsg,
+        error,
+        success
     } = useHandleMakeDelivery();
     return (
         <Page>
@@ -104,6 +113,23 @@ const Delivery = () =>{
                     </DeliveryForm>
                 </DeliveryWrapper>
             </DeliveryContainer>
+            {
+                error && (
+                    <View 
+                        type="DELIVERY-ERROR"
+                        history={history} 
+                    />
+                ) 
+            }
+            {
+                success && (
+                    <View 
+                        type="DELIVERY-SUCCESS" 
+                        history={history}
+                    />
+                )
+            }
+            <Footer />
         </Page>
     );
 }

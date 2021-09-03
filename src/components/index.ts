@@ -9,6 +9,7 @@ import Button from "./Button/Button";
 import Footer from "./Footer/Footer";
 import Input from "./Input/Input";
 import Alert from "./Alert/Alert";
+import View from "./View";
 
 export {
     Navbar,
@@ -21,5 +22,6 @@ export {
     Button,
     Footer,
     Input,
-    Alert
+    Alert,
+    View
 }

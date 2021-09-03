@@ -6,6 +6,6 @@ export default interface DeliveryProps {
     city: String,
     state: String,
     zipCode: String | Number,
-    phoneNumber: String,
+    phoneNumber: String | Number,
     email?: String
 }

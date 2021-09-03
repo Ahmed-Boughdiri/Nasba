@@ -36,7 +36,7 @@ const useHandleGetProduct = () =>{
     }
     useEffect(() =>{
         handleGetProduct();
-    }, [])
+    }, []);
     return product;
 }
 

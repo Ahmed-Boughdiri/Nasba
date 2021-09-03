@@ -2,7 +2,8 @@ import {
     Page, 
     Navbar, 
     Title,
-    Alert
+    Alert,
+    Footer
 } from "components";
 import {
     ProductDetails,
@@ -23,8 +24,9 @@ import {
     useHandleGetProduct,
     useHandleAddToCart
 } from "hooks";
+import { RouteComponentProps } from "react-router-dom";
 
-const Product = () =>{
+const Product:React.FC<RouteComponentProps> = ({ history }) =>{
     const product = useHandleGetProduct();
     const {
         handleAddToCart,
@@ -109,7 +111,9 @@ const Product = () =>{
                                 />
                                 ADD TO CART
                             </ProductDetailsButton>
-                            <ProductDetailsButton>
+                            <ProductDetailsButton
+                                onClick={() => history.push("/delivery")}
+                            >
                                 <ProductDetailsButtonIcon 
                                     src={theme.icons.purchase}
                                     alt=""
@@ -120,6 +124,7 @@ const Product = () =>{
                     </ProductDetails>
                 </ProductDetailsWrapper>
             </ProductDetailsContainer>
+            <Footer />
         </Page>
     );
 }

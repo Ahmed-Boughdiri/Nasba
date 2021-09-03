@@ -46,7 +46,7 @@ const useHandleDeliveryState = () =>{
             handlePhoneNumber: 
                 (e:React.ChangeEvent<HTMLInputElement>) =>{
                     const data = e.target.value;
-                    if([ ...numericalRange, "+" ].includes(data[data.length - 1]))
+                    if(numericalRange.includes(data[data.length - 1]))
                         setPhoneNumber(e.target.value)
                 },
             handleEmail: 

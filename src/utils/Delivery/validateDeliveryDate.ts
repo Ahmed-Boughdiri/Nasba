@@ -21,8 +21,9 @@ function validateDeliveryData(delivery: DeliveryProps) {
         throw Error("Zip Code Needs To Be Provided");
     else if(!delivery.phoneNumber)
         throw Error("Phone Number Needs To Be Provided");                
-    else if(delivery.phoneNumber.length < 5)
-        throw Error("Phone Number Is Shorter Than Required");
+    else if(typeof delivery.phoneNumber === "string")
+        if(delivery.phoneNumber.length < 5)
+            throw Error("Phone Number Is Shorter Than Required");
 }
 
 export default validateDeliveryData;

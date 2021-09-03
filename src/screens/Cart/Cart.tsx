@@ -1,4 +1,8 @@
-import { Page, Navbar } from "components";
+import { 
+    Page, 
+    Navbar,
+    Footer
+} from "components";
 import Item from "./Item";
 import {
     CartContainer,
@@ -32,6 +36,7 @@ const Cart = () =>{
                     </CartItems>
                 </CartWrapper>
             </CartContainer>
+            <Footer/>
         </Page>
     );
 }

@@ -1,4 +1,8 @@
-import { Page, Navbar } from "components";
+import { 
+    Page, 
+    Navbar,
+    Footer
+} from "components";
 import {
     ParagraphContainer,
     ParagraphText,
@@ -67,6 +71,7 @@ const Policy = () =>(
                 </ParagraphText>
             </ParagraphContainer>
         </PolicyContainer>
+        <Footer />
     </Page>
 );
 

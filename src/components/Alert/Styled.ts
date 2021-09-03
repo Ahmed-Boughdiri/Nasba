@@ -1,5 +1,6 @@
 import styled,{ css } from "styled-components";
 import { AlertContainerProps } from "./Props";
+import theme from "theme";
 
 export const AlertContainer = styled.div<AlertContainerProps>`
     width: 95%;
@@ -12,7 +13,7 @@ export const AlertContainer = styled.div<AlertContainerProps>`
     left: 50%;
     transform: translateX(-50%);
     height: 40px;
-    background-color: rgba(207, 0, 15, 0.9);
+    background-color: ${theme.colors.danger};
     border-radius: 5px;
     box-sizing: border-box;
     padding: 12px 20px;

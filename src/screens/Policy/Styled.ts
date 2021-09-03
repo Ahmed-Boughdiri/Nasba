@@ -5,7 +5,7 @@ export const PolicyContainer = styled.div`
     width: 100%;
     max-width: 900px;
     display: block;
-    margin: 20px auto 0;
+    margin: 20px auto 80px;
     @media only screen and (max-width: 920px) {
         box-sizing: border-box;
         padding: 0 20px;
