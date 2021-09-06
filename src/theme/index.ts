@@ -4,6 +4,8 @@ import removeIcon from "assets/remove.svg";
 import removeIconLight from "assets/remove-light.svg";
 import errorIcon from "assets/error.png";
 import successIcon from "assets/success.png";
+import menuIcon from "assets/menu.svg";
+import errorMsgIcon from "assets/error.svg";
 
 const theme = {
     colors: {
@@ -20,7 +22,9 @@ const theme = {
             remove: removeIconLight
         },
         error: errorIcon,
-        success: successIcon
+        success: successIcon,
+        menu: menuIcon,
+        errorMsgIcon
     }
 }
 

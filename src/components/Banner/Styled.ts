@@ -32,6 +32,16 @@ export const BannerTitle = styled.h6`
     font-weight: 800;
     font-size: 40px;
     line-height: 46px;
+    @media only screen and (max-width: 700px) {
+        font-size: 32px;
+    }
+    @media only screen and (max-width: 575px) {
+        font-size: 28px;
+    }
+    @media only screen and (max-width: 500px) {
+        font-size: 25px;
+        line-height: 32px;
+    }
 `;
 
 export const BannerSubTitle = styled.p`
@@ -43,4 +53,14 @@ export const BannerSubTitle = styled.p`
     font-weight: 500;
     line-height: 35px;
     margin-top: 5px;
+    @media only screen and (max-width: 700px) {
+        font-size: 25px;
+    }
+    @media only screen and (max-width: 575px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 500px) {
+        font-size: 18px;
+        line-height: 22px;
+    }
 `;

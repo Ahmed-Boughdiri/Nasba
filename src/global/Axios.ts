@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "http://localhost:5000/graphql",
+    baseURL: "https://nasba-backend.herokuapp.com/graphql",
     method: "POST"
 });

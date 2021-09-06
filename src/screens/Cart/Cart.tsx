@@ -11,12 +11,15 @@ import {
 } from "./Styled";
 import { useSelector } from "react-redux";
 import { StoreProps } from "store";
+import { RouteComponentProps } from "react-router-dom";
+import { useHandleDeleteItem } from "hooks";
 
-const Cart = () =>{
+const Cart:React.FC<RouteComponentProps> = ({ history }) =>{
     const cartItems = useSelector((state: StoreProps) => state.cart);
+    const { handleDeletItem } = useHandleDeleteItem();
     return (
         <Page>
-            <Navbar />
+            <Navbar history={history} />
             <CartContainer>
                 <CartWrapper>
                     <h6>YOUR CART</h6>
@@ -29,7 +32,13 @@ const Cart = () =>{
                                     name={item.name}
                                     price={item.price}
                                     thumbnail={item.thumbnail[0] || ""}
-
+                                    genre={item.genre}
+                                    history={history}
+                                    id={item.id}
+                                    size={item.size}
+                                    status={item.status}
+                                    discountPrice={item.discountPrice}
+                                    onDelete={() => handleDeletItem(item.id)}
                                 />
                             ))
                         }

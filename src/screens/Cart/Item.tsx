@@ -10,12 +10,21 @@ import {
     CartItemThumbnail
 } from "./Styled";
 import theme from "theme";
+import { History } from "history";
+import { useHandleOrderNow } from "hooks";
 
 interface ItemProps {
     thumbnail?: String,
     name: String,
     label: String,
     price: Number,
+    history: History,
+    genre: String,
+    id: String,
+    size: String,
+    status: "AVAILABLE" | "NOT AVAILABLE",
+    discountPrice?: Number,
+    onDelete: () => void
 }
 
 const Item:React.FC<ItemProps> = ({
@@ -23,42 +32,64 @@ const Item:React.FC<ItemProps> = ({
     name,
     label,
     price,
-}) =>(
-    <CartItem>
-        <CartItemContainer>
-            <CartItemThumbnail>
-                <img 
-                    src={`http://localhost:5000/${thumbnail}`}
-                    alt="" 
-                />
-            </CartItemThumbnail>
-            <CartItemDetails>
-                <CartItemProductName>
-                    { name }
-                </CartItemProductName>
-                <CartItemLabel>
-                    { label }
-                </CartItemLabel>
-                <CartItemPrice>
-                    { price }$
-                </CartItemPrice>
-            </CartItemDetails>
-        </CartItemContainer>
-        <CartItemOptions>
-            <CartItemOption>
-                <img 
-                    src={theme.icons.purchase}
-                    alt="" 
-                />
-            </CartItemOption>
-            <CartItemOption>
-                <img 
-                    src={theme.icons.remove} 
-                    alt="" 
-                />
-            </CartItemOption>
-        </CartItemOptions>
-    </CartItem>
-);
+    history,
+    genre,
+    id,
+    size,
+    status,
+    discountPrice,
+    onDelete
+}) =>{
+    const handleOrderNow = useHandleOrderNow(history);
+    return (
+        <CartItem>
+            <CartItemContainer>
+                <CartItemThumbnail>
+                    <img 
+                        src={`https://nasba-backend.herokuapp.com/${thumbnail}`}
+                        alt="" 
+                    />
+                </CartItemThumbnail>
+                <CartItemDetails>
+                    <CartItemProductName>
+                        { name }
+                    </CartItemProductName>
+                    <CartItemLabel>
+                        { label }
+                    </CartItemLabel>
+                    <CartItemPrice>
+                        { price }$
+                    </CartItemPrice>
+                </CartItemDetails>
+            </CartItemContainer>
+            <CartItemOptions>
+                <CartItemOption
+                    onClick={() => handleOrderNow({
+                        genre,
+                        id,
+                        label,
+                        name,
+                        price,
+                        size,
+                        status,
+                        thumbnail: [thumbnail],
+                        discountPrice
+                    })}
+                >
+                    <img 
+                        src={theme.icons.purchase}
+                        alt="" 
+                    />
+                </CartItemOption>
+                <CartItemOption onClick={onDelete}>
+                    <img 
+                        src={theme.icons.remove} 
+                        alt="" 
+                    />
+                </CartItemOption>
+            </CartItemOptions>
+        </CartItem>
+    );
+}
 
 export default Item;

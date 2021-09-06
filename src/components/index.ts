@@ -10,6 +10,8 @@ import Footer from "./Footer/Footer";
 import Input from "./Input/Input";
 import Alert from "./Alert/Alert";
 import View from "./View";
+import Loader from "./Loader/Loader";
+import Error from "./Error/Error";
 
 export {
     Navbar,
@@ -23,5 +25,7 @@ export {
     Footer,
     Input,
     Alert,
-    View
+    View,
+    Loader,
+    Error
 }

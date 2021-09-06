@@ -3,7 +3,9 @@ import {
     Navbar, 
     Title,
     Alert,
-    Footer
+    Footer,
+    Loader,
+    Error
 } from "components";
 import {
     ProductDetails,
@@ -27,7 +29,11 @@ import {
 import { RouteComponentProps } from "react-router-dom";
 
 const Product:React.FC<RouteComponentProps> = ({ history }) =>{
-    const product = useHandleGetProduct();
+    const {
+        product,
+        loading,
+        error: productLoadingError
+    } = useHandleGetProduct();
     const {
         handleAddToCart,
         error,
@@ -37,7 +43,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
     } = useHandleAddToCart();
     return (
         <Page>
-            <Navbar />
+            <Navbar history={history} />
             {
                 error && (
                     <Alert onHide={emptyErrorMsg}>
@@ -56,73 +62,87 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                 )
             }
             <ProductDetailsContainer>
-                <ProductDetailsWrapper>
-                    <ProductThumbnail>
-                        <img 
-                            src={`http://localhost:5000/${product.thumbnail[0] || ""}`}
-                            alt="" 
-                        />
-                    </ProductThumbnail>
-                    <ProductDetails>
-                        <Title
-                            fontWeight="800"
-                            fontSize="32px"
-                            textAlign="left"
-                        >
-                            { product.name }
-                        </Title>
-                        <Title
-                            fontSize="25px"
-                            textAlign="left"
-                        >
-                            { product.label }
-                        </Title>
-                        <ProductPriceContainer>
+                {
+                    loading ? (
+                        <Loader />
+                    ) : (
+                        <>
                             {
-                                product.discountPrice && (
-                                    <ProductPrice discount>
-                                        { product.discountPrice }dt -Piece 
-                                    </ProductPrice>
+                                productLoadingError ? (
+                                    <Error errorMsg={productLoadingError} />
+                                ) : (
+                                    <ProductDetailsWrapper>
+                                        <ProductThumbnail>
+                                            <img 
+                                                src={`https://nasba-backend.herokuapp.com/${product.thumbnail[0] || ""}`}
+                                                alt="" 
+                                            />
+                                        </ProductThumbnail>
+                                        <ProductDetails>
+                                            <Title
+                                                fontWeight="800"
+                                                fontSize="32px"
+                                                textAlign="left"
+                                            >
+                                                { product.name }
+                                            </Title>
+                                            <Title
+                                                fontSize="25px"
+                                                textAlign="left"
+                                            >
+                                                { product.label }
+                                            </Title>
+                                            <ProductPriceContainer>
+                                                {
+                                                    product.discountPrice && (
+                                                        <ProductPrice discount>
+                                                            { product.discountPrice }dt -Piece 
+                                                        </ProductPrice>
+                                                    )
+                                                }
+                                                <ProductPrice>
+                                                    { product.price } dt -Piece 
+                                                </ProductPrice>
+                                            </ProductPriceContainer>
+                                            <ProductMoreDetailsContainer>
+                                                <ProductMoreDetails>
+                                                    Sizes: { product.size }
+                                                </ProductMoreDetails>
+                                                <ProductMoreDetails>
+                                                    For: { product.genre }
+                                                </ProductMoreDetails>
+                                            </ProductMoreDetailsContainer>
+                                            <ProductDetailsParagraph>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                            </ProductDetailsParagraph>
+                                            <ProductDetailsButtonsContainer>
+                                                <ProductDetailsButton 
+                                                    onClick={() =>handleAddToCart(product)}
+                                                >
+                                                    <ProductDetailsButtonIcon 
+                                                        src={theme.icons.cart}
+                                                        alt=""
+                                                    />
+                                                    ADD TO CART
+                                                </ProductDetailsButton>
+                                                <ProductDetailsButton
+                                                    onClick={() => history.push("/delivery")}
+                                                >
+                                                    <ProductDetailsButtonIcon 
+                                                        src={theme.icons.purchase}
+                                                        alt=""
+                                                    />
+                                                    PURCHASE NOW
+                                                </ProductDetailsButton>
+                                            </ProductDetailsButtonsContainer>
+                                        </ProductDetails>
+                                    </ProductDetailsWrapper>
                                 )
                             }
-                            <ProductPrice>
-                                { product.price } dt -Piece 
-                            </ProductPrice>
-                        </ProductPriceContainer>
-                        <ProductMoreDetailsContainer>
-                            <ProductMoreDetails>
-                                Sizes: { product.size }
-                            </ProductMoreDetails>
-                            <ProductMoreDetails>
-                                For: { product.genre }
-                            </ProductMoreDetails>
-                        </ProductMoreDetailsContainer>
-                        <ProductDetailsParagraph>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        </ProductDetailsParagraph>
-                        <ProductDetailsButtonsContainer>
-                            <ProductDetailsButton 
-                                onClick={() =>handleAddToCart(product)}
-                            >
-                                <ProductDetailsButtonIcon 
-                                    src={theme.icons.cart}
-                                    alt=""
-                                />
-                                ADD TO CART
-                            </ProductDetailsButton>
-                            <ProductDetailsButton
-                                onClick={() => history.push("/delivery")}
-                            >
-                                <ProductDetailsButtonIcon 
-                                    src={theme.icons.purchase}
-                                    alt=""
-                                />
-                                PURCHASE NOW
-                            </ProductDetailsButton>
-                        </ProductDetailsButtonsContainer>
-                    </ProductDetails>
-                </ProductDetailsWrapper>
+                        </>
+                    )
+                }
             </ProductDetailsContainer>
             <Footer />
         </Page>

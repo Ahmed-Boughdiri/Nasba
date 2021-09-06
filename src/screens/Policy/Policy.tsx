@@ -10,10 +10,11 @@ import {
     PolicyContainer,
     PolicyTitle
 } from "./Styled";
+import { RouteComponentProps } from "react-router-dom";
 
-const Policy = () =>(
+const Policy:React.FC<RouteComponentProps> = ({ history }) =>(
     <Page>
-        <Navbar />
+        <Navbar history={history} />
         <PolicyContainer>
             <PolicyTitle>Privacy Policy</PolicyTitle>
             <ParagraphContainer>

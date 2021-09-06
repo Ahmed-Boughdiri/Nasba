@@ -30,3 +30,9 @@ i {
 .footer-copyright {
     background-color: #171b1d;
 }
+
+@media only screen and (max-width: 580px) {
+    .footer-email-input-container {
+        width: 95%;
+    }
+}

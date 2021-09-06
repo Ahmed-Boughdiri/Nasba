@@ -126,7 +126,7 @@ const Footer = () =>(
                         consectetur adipisicing elit. 
                         At itaque temporibus.
                     </p>
-                    <div className="p-1 rounded border">
+                    <div className="p-1 rounded border footer-email-input-container">
                         <div className="input-group">
                             <input 
                                 type="email" 

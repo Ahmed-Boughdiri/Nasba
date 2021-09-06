@@ -10,6 +10,7 @@ import {
     DiscountPrice
 } from "./Styled";
 import { CardProps } from "./Props";
+import { handleTitle } from "utils";
 
 const Card:React.FC<CardProps> = ({
     thumbnail,
@@ -23,7 +24,7 @@ const Card:React.FC<CardProps> = ({
     <CardContainer>
         <CardThumbnail>
             <img 
-                src={`http://localhost:5000/${thumbnail}`}
+                src={`https://nasba-backend.herokuapp.com/${thumbnail}`}
                 alt="" 
             />
         </CardThumbnail>
@@ -32,7 +33,7 @@ const Card:React.FC<CardProps> = ({
                 textAlign="left"
                 fontSize="23px"
             >
-                { name }
+                { handleTitle(name) }
             </Title>
             <CardPriceContainer>
                 {

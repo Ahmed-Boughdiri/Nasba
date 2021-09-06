@@ -10,7 +10,7 @@ import { RouteComponentProps } from "react-router";
 
 const Home:React.FC<RouteComponentProps> = ({ history }) =>(
     <Page>
-        <Navbar />
+        <Navbar history={history} />
         <Caption />
         <Banner />
         <ShopSection history={history} />

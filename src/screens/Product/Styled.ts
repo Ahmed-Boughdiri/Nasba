@@ -9,6 +9,11 @@ export const ProductDetailsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: 920px) {
+        height: fit-content;
+        justify-content: space-around;
+        margin-bottom: 50px;
+    }
 `;
 
 export const ProductDetailsWrapper = styled.div`
@@ -36,7 +41,7 @@ export const ProductThumbnail = styled.div`
         width: 90%;
         display: block;
         max-width: 400px;
-        margin: 20px auto 0;
+        margin: 20px auto -50px;
         &>img {
             height: fit-content;
             width: 100%;

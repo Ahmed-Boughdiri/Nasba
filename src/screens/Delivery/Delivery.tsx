@@ -32,7 +32,7 @@ const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
     } = useHandleMakeDelivery();
     return (
         <Page>
-            <Navbar />
+            <Navbar history={history} />
             <DeliveryContainer>
                 {
                     validationError && (

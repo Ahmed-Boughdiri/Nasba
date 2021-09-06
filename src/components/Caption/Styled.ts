@@ -14,4 +14,19 @@ export const CaptionContainer = styled.div`
         font-size: 16px;
         transform: translateY(20%);
     }
+    @media only screen and (max-width: 575px) {
+        &>h6 {
+            font-size: 14px;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        &>h6 {
+            font-size: 13px;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        &>h6 {
+            font-size: 12px;
+        }
+    }
 `;

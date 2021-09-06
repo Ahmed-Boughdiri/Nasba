@@ -38,6 +38,11 @@ export const CartItem = styled.div`
     justify-content: space-between;
     padding: 0 10px;
     margin-bottom: 15px;
+    @media only screen and (max-width: 530px) {
+        display: block;
+        margin: 0 auto 30px;
+        width: fit-content;
+    }
 `;
 
 export const CartItemContainer = styled.div`
@@ -86,6 +91,10 @@ export const CartItemPrice = styled.h6`
 export const CartItemOptions = styled.div`
     display: flex;
     align-items: center;
+    @media only screen and (max-width: 530px) {
+        width: 100%;
+        margin: 10px auto 0;
+    }
 `;
 
 export const CartItemOption = styled.div`
@@ -101,6 +110,14 @@ export const CartItemOption = styled.div`
     &>img {
         height: 60%;
         width: 60%;
+    }
+    @media only screen and (max-width: 530px) {
+        width: 100%;
+        border-radius: 5px;
+        &>img {
+        height: 32px;
+        width: 32px;
+    }
     }
 `;
 
