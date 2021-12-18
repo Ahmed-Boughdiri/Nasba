@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Button } from "components";
 
 import bg from "assets/banner-bg.jpg";
+import theme from "theme";
 
 export const BannerContainer = styled.div`
     width: 100vw;
-    height: 500px;
+    min-height: calc(100vh - 110px);
+    max-height: 800px;
     background: url("${bg}");
     background-position: center;
     background-repeat: no-repeat;
@@ -15,23 +18,34 @@ export const BannerContainer = styled.div`
 `;
 
 export const BannerWrapper = styled.div`
-    height: 100%;
+    height: calc(100vh - 110px);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.35);
+    background: linear-gradient(
+            180deg,
+            rgba(0,0,0,0.5) 0%,
+            rgba(0,0,0,0.5) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.5) 0%,
+            rgba(0,0,0,0) 100%
+        );
 `;
 
 export const BannerTitle = styled.h6`
     width: 95%;
-    max-width: 850px;
+    max-width: 1200px;
     text-align: center;
     color: #fff;
-    font-weight: 800;
+    font-weight: bolder;
     font-size: 40px;
     line-height: 46px;
+    text-transform: uppercase;
+    color: ${theme.colors.primary};
     @media only screen and (max-width: 700px) {
         font-size: 32px;
     }
@@ -62,5 +76,36 @@ export const BannerSubTitle = styled.p`
     @media only screen and (max-width: 500px) {
         font-size: 18px;
         line-height: 22px;
+    }
+`;
+
+export const BannerButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    @media only screen and (max-width: 500px) {
+        width: 100%;
+        flex-direction: column;
+    }
+`;
+
+export const BannerButton = styled.button`
+    background: ${theme.colors.primary};
+    color: ${theme.colors.secondary};
+    width: 250px;
+    height: 50px;
+    border: 0;
+    font-weight: 800;
+    border-radius: 3px;
+    padding: 11px 28px;
+    &:nth-child(2) {
+        margin-left: 20px;
+    }
+    @media only screen and (max-width: 500px) {
+        width: 90%;
+        &:nth-child(2) {
+            margin-left: 0;
+            margin-top: 7px;
+        }
     }
 `;

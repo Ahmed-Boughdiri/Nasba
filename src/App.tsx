@@ -10,7 +10,9 @@ import {
   Product, 
   Policy, 
   Delivery, 
-  Cart
+  Cart,
+  Register,
+  Login
 } from "screens";
 
 const App = () =>(
@@ -21,6 +23,8 @@ const App = () =>(
       <Route exact path="/policy" component={Policy} />
       <Route exact path="/delivery" component={Delivery} />
       <Route exact path="/cart" component={Cart} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/register" component={Login} />
     </Switch>
   </Router>
 );

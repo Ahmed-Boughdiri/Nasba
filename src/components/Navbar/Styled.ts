@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Container } from "react-bootstrap";
 import theme from "theme";
 
 import logo from "assets/logo.png";
@@ -10,7 +9,11 @@ export const NavbarContainer = styled.div`
     background-color: ${theme.colors.primary};
 `;
 
-export const NavbarWrapper = styled(Container)`
+export const NavbarWrapper = styled.div`
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -24,6 +27,7 @@ export const NavbarBrand = styled.div`
     height: 40px;
     display: flex;
     align-items: flex-end;  
+    cursor: pointer;
     &>h6 {
         text-align: left;
         color: ${theme.colors.secondary};
@@ -32,13 +36,6 @@ export const NavbarBrand = styled.div`
         font-weight: bolder;
         transform: translateY(6px);
     }
-`;
-
-export const NavbarLogo = styled.img.attrs(_ =>({
-    src: logo,
-    alt: ""
-}))`
-    height: 38px;
 `;
 
 interface NavbarLinksProps {
@@ -74,9 +71,10 @@ export const NavbarLinks = styled.div<NavbarLinksProps>`
 `;
 
 export const NavbarLink = styled.h6`
+    justify-content: center;
     text-align: center;
     color: ${theme.colors.secondary};
-    margin: 0 10px;
+    margin: -6px 10px 0;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -94,6 +92,50 @@ export const NavbarMenu = styled.div`
         margin-left: auto;
     }
 `;
+export const NavbarOptions = styled.div`
+    margin-left: 35px;
+    display: flex;
+    align-items: center;
+`;
+
+interface NavbarOptionProps {
+    height?: String;
+    width?: String;
+    languageOption?: Boolean
+}
+
+export const NavbarOption = styled.div<NavbarOptionProps>`
+    margin-left: 20px;
+    cursor: pointer;
+    &:last-child {
+        margin-left: 13px;
+    }
+    ${
+        ({ height="20px", width="20px" }) =>{
+            return css`
+                &>img {
+                    height: ${height as string};
+                    width: ${width as string};
+                }
+            `;
+        }
+    }
+    ${
+        ({ languageOption }) =>{
+            if(languageOption)
+                return css`
+                    transform: translateY(1px);
+                    display: flex;
+                    align-items: center;
+                    &>img:last-child {
+                        margin-left: 5px;
+                        height: 15px;
+                        width: 15px;
+                    }
+                `;
+        }
+    }
+`;
 export const NavbarMenuIcon = styled.img.attrs(_ =>({
     src: theme.icons.menu
 }))`
@@ -102,3 +144,9 @@ export const NavbarMenuIcon = styled.img.attrs(_ =>({
     transform: translateY(2px);
 `;
 
+export const NavbarLogo = styled.img.attrs(_ =>({
+    src: logo,
+    alt: ""
+}))`
+    height: 38px;
+`;

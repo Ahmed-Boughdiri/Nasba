@@ -6,10 +6,17 @@ import {
     NavbarWrapper,
     NavbarLogo,
     NavbarMenu,
-    NavbarMenuIcon
+    NavbarMenuIcon,
+    NavbarOptions,
+    NavbarOption
 } from "./Styled";
 import { useState } from "react";
 import { NavbarProps } from "./Porps";
+
+import cartIcon from "assets/cart.png";
+import InfoIcon from "assets/info.svg";
+import frenshFlag from "assets/francais.svg";
+import downArrow from "assets/down-arrow.svg";
 
 const Navbar:React.FC<NavbarProps> = ({ history }) =>{
     const [navbarLinksVisible, setNavbarLinksVisible] = useState(false);
@@ -18,7 +25,7 @@ const Navbar:React.FC<NavbarProps> = ({ history }) =>{
     return (
         <NavbarContainer>
             <NavbarWrapper>
-                <NavbarBrand>
+                <NavbarBrand onClick={() => history.push("/")}>
                     <NavbarLogo />
                     <h6>asba</h6>
                 </NavbarBrand>
@@ -29,16 +36,49 @@ const Navbar:React.FC<NavbarProps> = ({ history }) =>{
                         Home
                     </NavbarLink>
                     <NavbarLink
-                        onClick={() => history.push("/cart")}
+                        onClick={() => history.push("/register")}
                     >
-                        Cart
+                        Register
                     </NavbarLink>
                     <NavbarLink
-                        onClick={() => history.push("/policy")}
+                        onClick={() => history.push("/login")}
                     >
-                        Policy
+                        Login
                     </NavbarLink>
                 </NavbarLinks>
+                <NavbarOptions>
+                    <NavbarOption onClick={() => history.push("/cart")}>
+                        <img
+                            alt=""
+                            src={cartIcon}
+                        />
+                    </NavbarOption>
+                    <NavbarOption 
+                        languageOption 
+                        height="23px" 
+                        width="23px"
+                    >
+                        <img
+                            alt=""
+                            src={frenshFlag}
+                        />
+                        <img
+                            alt=""
+                            src={downArrow}
+                            id="down-arrow"
+                        />
+                    </NavbarOption>
+                    <NavbarOption 
+                        height="22px" 
+                        width="22px"
+                        onClick={() => history.push("/policy")}
+                    >
+                        <img
+                            alt=""
+                            src={InfoIcon}
+                        />
+                    </NavbarOption>
+                </NavbarOptions>
                 <NavbarMenu onClick={handleNavbarMenuClick}>
                     <NavbarMenuIcon />
                 </NavbarMenu>

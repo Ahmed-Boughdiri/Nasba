@@ -1,8 +1,12 @@
 import styled,{ css } from "styled-components";
 import theme from "theme";
-import { ButtonProps } from "./Props";
+import { ButtonComponentProps } from "./Props";
 
-export default styled.button<ButtonProps>`
+interface ButtonProps extends ButtonComponentProps {
+    onClick?: () => void
+}
+
+const ButtonComponent = styled.button<ButtonComponentProps>`
     border: 0;
     background-color: ${theme.colors.primary};
     color: ${theme.colors.secondary};
@@ -23,3 +27,20 @@ export default styled.button<ButtonProps>`
         }
     }
 `;
+
+const Button:React.FC<ButtonProps> = ({ 
+    children, 
+    onClick ,
+    height,
+    width
+}) =>(
+    <ButtonComponent 
+        onClick={onClick}
+        height={height}
+        width={width}
+    >
+        { children }
+    </ButtonComponent>
+)
+
+export default Button;

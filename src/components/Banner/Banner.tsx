@@ -2,7 +2,9 @@ import {
     BannerContainer,
     BannerSubTitle,
     BannerTitle,
-    BannerWrapper
+    BannerWrapper,
+    BannerButton,
+    BannerButtonsContainer
 } from "./Styled";
 
 const Banner = () =>(
@@ -15,6 +17,14 @@ const Banner = () =>(
                 Your First Option When It Comes To Shopping Clothes Online, 
                 And We Wish You Happy Shopping.
             </BannerSubTitle>
+            <BannerButtonsContainer>
+                <BannerButton>
+                    BECAME SELLER
+                </BannerButton>
+                <BannerButton>
+                    OPEN AN ACCOUNT
+                </BannerButton>
+            </BannerButtonsContainer>
         </BannerWrapper>
     </BannerContainer>
 );
