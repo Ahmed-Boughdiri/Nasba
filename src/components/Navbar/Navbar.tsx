@@ -26,8 +26,8 @@ const Navbar:React.FC<NavbarProps> = ({ history }) =>{
         <NavbarContainer>
             <NavbarWrapper>
                 <NavbarBrand onClick={() => history.push("/")}>
-                    <NavbarLogo />
-                    <h6>asba</h6>
+                    {/* <NavbarLogo /> */}
+                    <h6>Nasba</h6>
                 </NavbarBrand>
                 <NavbarLinks visible={navbarLinksVisible}>
                     <NavbarLink
@@ -36,7 +36,7 @@ const Navbar:React.FC<NavbarProps> = ({ history }) =>{
                         Home
                     </NavbarLink>
                     <NavbarLink
-                        onClick={() => history.push("/register")}
+                        onClick={() => window.open("/#/register")}
                     >
                         Register
                     </NavbarLink>

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Button } from "components";
 
-import bg from "assets/banner-bg.jpg";
+import bg from "assets/banner-bg.png";
 import theme from "theme";
 
 export const BannerContainer = styled.div`
     width: 100vw;
     min-height: calc(100vh - 110px);
     max-height: 800px;
-    background: url("${bg}");
+    background: url(https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=auto);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,15 +37,14 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerTitle = styled.h6`
-    width: 95%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 600px;
     text-align: center;
     color: #fff;
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 46px;
     text-transform: uppercase;
-    color: ${theme.colors.primary};
     @media only screen and (max-width: 700px) {
         font-size: 32px;
     }

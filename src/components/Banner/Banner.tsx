@@ -6,25 +6,27 @@ import {
     BannerButton,
     BannerButtonsContainer
 } from "./Styled";
+import { SearchBar } from "components";
 
 const Banner = () =>(
     <BannerContainer>
         <BannerWrapper>
             <BannerTitle>
-                Welcome To Nasba.tn E-coomerce Website
+                rechercher des produits ou des marques
             </BannerTitle>
-            <BannerSubTitle>
+            {/* <BannerSubTitle>
                 Your First Option When It Comes To Shopping Clothes Online, 
                 And We Wish You Happy Shopping.
-            </BannerSubTitle>
-            <BannerButtonsContainer>
+            </BannerSubTitle> */}
+            {/* <BannerButtonsContainer>
                 <BannerButton>
                     BECAME SELLER
                 </BannerButton>
                 <BannerButton>
                     OPEN AN ACCOUNT
                 </BannerButton>
-            </BannerButtonsContainer>
+            </BannerButtonsContainer> */}
+            <SearchBar />
         </BannerWrapper>
     </BannerContainer>
 );

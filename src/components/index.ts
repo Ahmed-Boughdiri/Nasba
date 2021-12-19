@@ -12,6 +12,7 @@ import Alert from "./Alert/Alert";
 import View from "./View";
 import Loader from "./Loader/Loader";
 import Error from "./Error/Error";
+import SearchBar from "./SearchBar/SearchBar";
 
 export {
     Navbar,
@@ -27,5 +28,6 @@ export {
     Alert,
     View,
     Loader,
-    Error
+    Error,
+    SearchBar
 }

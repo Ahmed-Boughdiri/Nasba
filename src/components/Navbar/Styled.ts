@@ -6,7 +6,8 @@ import logo from "assets/logo.png";
 export const NavbarContainer = styled.div`
     width: 100vw;
     height: 60px;
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 export const NavbarWrapper = styled.div`
@@ -30,11 +31,11 @@ export const NavbarBrand = styled.div`
     cursor: pointer;
     &>h6 {
         text-align: left;
-        color: ${theme.colors.secondary};
+        color: ${theme.colors.primary};
         font-size: 23px;
         margin-left: 5px;
         font-weight: bolder;
-        transform: translateY(6px);
+        transform: translateY(3px);
     }
 `;
 
@@ -78,6 +79,28 @@ export const NavbarLink = styled.h6`
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    height: 60px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &::after {
+        content: "";
+        height: 4px;
+        width: 130%;
+        display: none;
+        transform: translateY(16px);
+        background: ${theme.colors.primary};
+    }
+    &:hover::after {
+        display: block;
+    }
+    &:hover {
+        color: ${theme.colors.primary};
+        transition: color 0.3s ease-out;
+        transform: translateY(2px);
+    }
 `;
 
 export const NavbarMenu = styled.div`

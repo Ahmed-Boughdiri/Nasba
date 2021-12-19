@@ -9,10 +9,11 @@ import errorMsgIcon from "assets/error.svg";
 
 const theme = {
     colors: {
-        primary: "#FFD800",
+        primary: "#0d6efd",
         secondary :"#2C3539",
         danger: "#cf000fe6",
-        success: "#4bb543e6"
+        success: "#4bb543e6",
+        white: "#fff"
     },
     icons: {
         cart: cartIcon,

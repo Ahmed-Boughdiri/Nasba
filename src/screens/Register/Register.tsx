@@ -1,6 +1,17 @@
+import {
+    RegisterPage,
+    RegisterPageBanner,
+    RegisterPageBannerContainer
+} from "./Styled";
 
 const Register = () =>(
-    <h1>This is The Register Page</h1>
+    <RegisterPage>
+        <RegisterPageBanner>
+            <RegisterPageBannerContainer>
+                
+            </RegisterPageBannerContainer>
+        </RegisterPageBanner>
+    </RegisterPage>
 );
 
 export default Register;
